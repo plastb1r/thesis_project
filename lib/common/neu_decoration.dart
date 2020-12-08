@@ -7,7 +7,7 @@ class NeuDecoration extends Decoration {
   const NeuDecoration({
     @required this.elevation,
     ShapeBorder shapeBorder = kButtonStadiumBorder,
-    this.boxShadows = kShadowBoxes,
+    this.boxShadows = kButtonShadowBoxes,
     this.borderColors = kBorderGradientColors,
     this.innerShadowColors = kInnerShadowColors,
     Color innerColor = kInnerColor,
@@ -33,6 +33,10 @@ class NeuDecoration extends Decoration {
 
   @override
   EdgeInsetsGeometry get padding => shapeBorder.dimensions;
+
+  // TODO: implement isComplex
+  // @override
+  // bool get isComplex => true;
 
   @override
   BoxPainter createBoxPainter([Function onChanged]) => _NeuDecorationPainter(
@@ -85,7 +89,6 @@ class _NeuDecorationPainter extends BoxPainter {
     this.innerColor,
   ) {
     if (isBellowSurface) {
-      innerShadowColors = [innerShadowColors[1], innerShadowColors[0]];
       borderColors = [borderColors[1], borderColors[0]];
     }
   }

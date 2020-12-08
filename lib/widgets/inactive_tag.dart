@@ -1,36 +1,31 @@
 import 'package:flutter/material.dart';
 
 import '../common/constants.dart';
-import 'colored_background.dart';
-import 'neu_button.dart';
+import '../widgets/colored_background.dart';
+import 'neu_shape.dart';
 
-class NeuChip extends StatelessWidget {
-  const NeuChip({
+class InactiveTag extends StatelessWidget {
+  const InactiveTag({
     Key key,
-    Color color = Colors.transparent,
     @required this.text,
-    @required this.onPressed,
+    Color color = Colors.transparent,
   })  : assert(text != null, 'A non-null String must be provided to a widget.'),
         color = color ?? Colors.transparent,
         super(key: key);
 
   final String text;
   final Color color;
-  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return NeuButton.stadium(
-      key: key,
-      padding: kZeroEdgeInsets,
-      onPressed: onPressed,
+    return NeuShape.inactive(
       child: Padding(
-        padding: kChipPadding,
+        padding: kInactiveTagPadding,
         child: ColoredBackground(
-          padding: kChipColorAreaPadding,
+          padding: kInactiveTagColorAreaPadding,
           color: color,
           text: text,
-          fontSize: 14,
+          fontSize: 12,
         ),
       ),
     );

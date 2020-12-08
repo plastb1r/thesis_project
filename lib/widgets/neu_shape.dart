@@ -21,10 +21,10 @@ class NeuShape extends StatelessWidget {
   }) : this._(
           key: key,
           shapeBorder: kButtonStadiumBorder,
-          elevation: 2,
-          boxShadows: kShadowBoxes,
+          elevation: -2,
+          boxShadows: null,
           borderColors: kBorderGradientColors,
-          innerShadowColors: null,
+          innerShadowColors: kInnerShadowColors,
           innerColor: kInnerColor,
           child: child,
         );
@@ -34,11 +34,11 @@ class NeuShape extends StatelessWidget {
     Widget child,
   }) : this._(
           key: key,
-          shapeBorder: kButtonStadiumBorder,
-          elevation: -2,
-          boxShadows: null,
+          shapeBorder: kCardBorder,
+          elevation: 2,
+          boxShadows: kCardShadowBoxes,
           borderColors: kBorderGradientColors,
-          innerShadowColors: kInnerShadowColors,
+          innerShadowColors: null,
           innerColor: kInnerColor,
           child: child,
         );

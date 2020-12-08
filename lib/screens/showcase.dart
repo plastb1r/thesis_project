@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thesis_project/widgets/neu_card.dart';
 
 import '../mock_data.dart';
 import '../widgets/neu_button.dart';
@@ -26,54 +27,75 @@ class _ShowCaseState extends State<ShowCase> {
         title: const Text('Showcase Screen'),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 30),
-            const Text('Chips'),
-            const SizedBox(height: 30),
-            getChips(),
-            const SizedBox(height: 30),
-            const Text('Buttons'),
-            const SizedBox(height: 30),
-            NeuButton.stadium(onPressed: () {}, child: const Text('test text')),
-            getButtons(),
-            const SizedBox(height: 30),
-            const Text('Outher Neumorphic Staff'),
-            const SizedBox(height: 30),
-            getShapes(),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            children: [
+              const SizedBox(height: 30),
+              const Text('Cards'),
+              const SizedBox(height: 30),
+              getCards(),
+              const SizedBox(height: 30),
+              const Text('Chips'),
+              const SizedBox(height: 30),
+              getChips(),
+              const SizedBox(height: 30),
+              const Text('Buttons'),
+              const SizedBox(height: 30),
+              NeuButton.stadium(
+                  onPressed: () {}, child: const Text('test text')),
+              getButtons(),
+              const SizedBox(height: 30),
+              const Text('Outher Neumorphic Staff'),
+              const SizedBox(height: 30),
+              getShapes(),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget getButtons() => Padding(
+  Widget getCards() => Padding(
         padding: const EdgeInsets.all(8),
-        child: ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: height, maxWidth: width),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                  child:
-                      _getOneColumnWith(NeuButton.stadium(onPressed: () {}))),
-              Expanded(
-                  child:
-                      _getOneColumnWith(NeuButton.stadium(onPressed: () {}))),
-            ],
-          ),
+        child: Wrap(
+          runSpacing: 12,
+          spacing: 16,
+          children: [
+            ...List.generate(
+              5,
+              (index) => ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: (width - 48) / 2),
+                child: NeuCard(
+                  title: fakeNotes[index].title,
+                  description: fakeNotes[index].description,
+                  tags: fakeNotes[index].tags,
+                ),
+              ),
+            ),
+          ],
         ),
       );
 
-  Widget getShapes() => Padding(
-        padding: const EdgeInsets.all(8),
-        child: ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: height, maxWidth: width),
-          child: Row(
-            children: <Widget>[
-              Expanded(child: _getOneColumnWith(const NeuShape.inactive())),
-              Expanded(child: _getOneColumnWith(const NeuShape.card())),
-            ],
-          ),
+  Widget getButtons() => ConstrainedBox(
+        constraints: BoxConstraints(maxHeight: height, maxWidth: width),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+                child: _getOneColumnWith(NeuButton.stadium(onPressed: () {}))),
+            Expanded(
+                child: _getOneColumnWith(NeuButton.stadium(onPressed: () {}))),
+          ],
+        ),
+      );
+
+  Widget getShapes() => ConstrainedBox(
+        constraints: BoxConstraints(maxHeight: height, maxWidth: width),
+        child: Row(
+          children: <Widget>[
+            Expanded(child: _getOneColumnWith(const NeuShape.inactive())),
+            Expanded(child: _getOneColumnWith(const NeuShape.card())),
+          ],
         ),
       );
 
