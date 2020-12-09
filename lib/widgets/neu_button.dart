@@ -86,9 +86,9 @@ class _NeuButtonState extends State<NeuButton> {
         },
         child: GestureDetector(
           behavior: HitTestBehavior.opaque,
-          onTapDown: onTapDownCallback,
-          onTapUp: onTapUpCallback,
-          onTapCancel: onTapCancelCallback,
+          onTapDown: _onTapDownCallback,
+          onTapUp: _onTapUpCallback,
+          onTapCancel: _onTapCancelCallback,
           child: Padding(
             padding: widget.padding,
             child: widget.child,
@@ -98,13 +98,13 @@ class _NeuButtonState extends State<NeuButton> {
     );
   }
 
-  void onTapDownCallback(TapDownDetails _) => setState(
+  void _onTapDownCallback(TapDownDetails _) => setState(
         () {
           nextDecoration = widget.decorationHold;
         },
       );
 
-  void onTapUpCallback(TapUpDetails _) => setState(
+  void _onTapUpCallback(TapUpDetails _) => setState(
         () {
           isSelected
               ? nextDecoration = widget.decorationUp
@@ -115,7 +115,7 @@ class _NeuButtonState extends State<NeuButton> {
         },
       );
 
-  void onTapCancelCallback() => setState(
+  void _onTapCancelCallback() => setState(
         () {
           isSelected
               ? nextDecoration = widget.decorationDown
