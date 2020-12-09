@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../common/constants.dart';
 
 class NeuButton extends StatefulWidget {
-  const NeuButton({
+  const NeuButton._({
     Key key,
     EdgeInsets padding,
     @required this.decorationUp,
@@ -11,12 +11,7 @@ class NeuButton extends StatefulWidget {
     @required this.decorationHold,
     @required this.onPressed,
     this.child,
-  })  : assert(
-            decorationUp != null ||
-                decorationDown != null ||
-                decorationHold != null,
-            'Decoration must be provided for each state.'),
-        padding = padding ?? kButtonPadding,
+  })  : padding = padding ?? kButtonPadding,
         super(key: key);
 
   const NeuButton.stadium({
@@ -24,7 +19,7 @@ class NeuButton extends StatefulWidget {
     EdgeInsets padding,
     @required VoidCallback onPressed,
     Widget child,
-  }) : this(
+  }) : this._(
           key: key,
           decorationUp: kButtonDecorationStadiumUp,
           decorationDown: kButtonDecorationStadiumDown,
@@ -39,7 +34,7 @@ class NeuButton extends StatefulWidget {
     EdgeInsets padding,
     @required VoidCallback onPressed,
     Widget child,
-  }) : this(
+  }) : this._(
           key: key,
           decorationUp: kButtonDecorationCircleUp,
           decorationDown: kButtonDecorationCircleDown,
@@ -81,7 +76,7 @@ class _NeuButtonState extends State<NeuButton> {
           begin: widget.decorationUp,
           end: nextDecoration,
         ),
-        duration: const Duration(milliseconds: kButtonDurationMs),
+        duration: kButtonDurationMs,
         curve: Curves.easeInOut,
         builder: (context, decoration, child) {
           return DecoratedBox(
@@ -91,28 +86,9 @@ class _NeuButtonState extends State<NeuButton> {
         },
         child: GestureDetector(
           behavior: HitTestBehavior.opaque,
-          onTapDown: (_) => setState(
-            () {
-              nextDecoration = widget.decorationHold;
-            },
-          ),
-          onTapUp: (_) => setState(
-            () {
-              isSelected
-                  ? nextDecoration = widget.decorationUp
-                  : nextDecoration = widget.decorationDown;
-              isSelected = !isSelected;
-
-              widget.onPressed();
-            },
-          ),
-          onTapCancel: () => setState(
-            () {
-              isSelected
-                  ? nextDecoration = widget.decorationDown
-                  : nextDecoration = widget.decorationUp;
-            },
-          ),
+          onTapDown: onTapDownCallback,
+          onTapUp: onTapUpCallback,
+          onTapCancel: onTapCancelCallback,
           child: Padding(
             padding: widget.padding,
             child: widget.child,
@@ -121,4 +97,29 @@ class _NeuButtonState extends State<NeuButton> {
       ),
     );
   }
+
+  void onTapDownCallback(TapDownDetails _) => setState(
+        () {
+          nextDecoration = widget.decorationHold;
+        },
+      );
+
+  void onTapUpCallback(TapUpDetails _) => setState(
+        () {
+          isSelected
+              ? nextDecoration = widget.decorationUp
+              : nextDecoration = widget.decorationDown;
+          isSelected = !isSelected;
+
+          widget.onPressed();
+        },
+      );
+
+  void onTapCancelCallback() => setState(
+        () {
+          isSelected
+              ? nextDecoration = widget.decorationDown
+              : nextDecoration = widget.decorationUp;
+        },
+      );
 }

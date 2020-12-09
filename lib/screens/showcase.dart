@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:thesis_project/widgets/neu_card.dart';
 
 import '../mock_data.dart';
 import '../widgets/neu_button.dart';
+import '../widgets/neu_card.dart';
 import '../widgets/neu_chip.dart';
 import '../widgets/neu_shape.dart';
 

@@ -57,7 +57,7 @@ const EdgeInsets kButtonPadding =
 const ShapeBorder kButtonStadiumBorder = StadiumBorder();
 const ShapeBorder kButtonCircleBorder = CircleBorder();
 
-const int kButtonDurationMs = 160;
+const Duration kButtonDurationMs = Duration(milliseconds: 160);
 
 const List<BoxShadow> kButtonShadowBoxes = [
   BoxShadow(
