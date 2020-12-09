@@ -10,7 +10,9 @@ const EdgeInsets kZeroEdgeInsets = EdgeInsets.all(0);
 // COLOR
 
 const Color kBackgroundColor = Color(0xFFE9EDF0);
+const Color kBaseTextColor = Color(0xFF595959);
 const Color kChipsTextColor = Color(0xFF515151);
+const Color kHeadlineTextColor = Color(0xFF515151);
 
 const List<Color> kBorderGradientColors = [
   Color(0xFFFFFFFF),

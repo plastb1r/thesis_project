@@ -21,6 +21,12 @@ class EntryPoint extends StatelessWidget {
       theme: ThemeData(
         backgroundColor: kBackgroundColor,
         scaffoldBackgroundColor: kBackgroundColor,
+        textTheme: Typography.blackMountainView.apply(
+          bodyColor: kBaseTextColor,
+          displayColor: kBaseTextColor,
+          fontFamily: 'Lato',
+        ),
+        // fontFamily: 'Lato',
       ),
       home: PageView(
         children: const [ShowCase()],

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../common/constants.dart';
 
 class ColoredBackground extends StatelessWidget {
@@ -27,7 +26,7 @@ class ColoredBackground extends StatelessWidget {
         padding: kChipColorAreaPadding,
         child: Text(
           text,
-          style: GoogleFonts.lato(
+          style: TextStyle(
             fontSize: fontSize,
             color: kChipsTextColor,
           ),
