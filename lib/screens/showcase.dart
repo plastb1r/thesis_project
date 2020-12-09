@@ -63,7 +63,7 @@ class _ShowCaseState extends State<ShowCase> {
           spacing: 16,
           children: [
             ...List.generate(
-              5,
+              fakeNotes.length,
               (index) => ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: (width - 48) / 2),
                 child: NeuCard(
