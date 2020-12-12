@@ -8,6 +8,7 @@ void main() {
   debugProfilePaintsEnabled = true;
   debugProfileBuildsEnabled = true;
   // debugPaintLayerBordersEnabled = true;
+  // debugPaintSizeEnabled = true;
   runApp(EntryPoint());
 }
 

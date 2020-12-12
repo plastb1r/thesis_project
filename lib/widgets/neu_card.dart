@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../common/constants.dart';
 import '../entities/tag_entity.dart';
 import '../widgets/inactive_tag.dart';
 import 'neu_shape.dart';
@@ -16,6 +17,15 @@ class NeuCard extends StatelessWidget {
   final String description;
   final List<TagEntity> tags;
 
+  List<Widget> get _rawTagRow => List.generate(tags.length, (i) {
+        final current = InactiveTag(text: tags[i].name, color: tags[i].color);
+        if (i != tags.length - 1) {
+          return current;
+        } else {
+          return Padding(padding: kInactiveTagBetweenPadding, child: current);
+        }
+      });
+
   @override
   Widget build(BuildContext context) {
     return NeuShape.card(
@@ -25,23 +35,24 @@ class NeuCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Text(title),
+            Text(
+              title,
+            ),
             Text(description),
-            Row(children: _buildTags()),
+            _getTagRow(),
           ],
         ),
       ),
     );
   }
 
-  List<Widget> _buildTags() => List.generate(
-        tags.length,
-        (index) => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 2),
-          child: InactiveTag(
-            text: tags[index].name,
-            color: tags[index].color,
+  Widget _getTagRow() => Wrap(
+        alignment: WrapAlignment.spaceBetween,
+        children: [
+          Wrap(
+            children: _rawTagRow,
           ),
-        ),
+          const InactiveTag(text: '+2'),
+        ],
       );
 }

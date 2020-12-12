@@ -155,6 +155,7 @@ const ShapeBorder kCardBorder =
 
 // INACTIVE TAG
 
+const kInactiveTagBetweenPadding = EdgeInsets.only(right: 8);
 const kInactiveTagPadding = EdgeInsets.all(4);
 
 const kInactiveTagColorAreaPadding =
