@@ -11,10 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  clay_containers: ^0.2.2
   cupertino_icons: ^1.0.0
   equatable: ^1.2.5
-  google_fonts: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -25,6 +23,8 @@ flutter:
     - family: Lato
       fonts:
         - asset: assets/fonts/Lato-Regular.ttf
+        - asset: assets/fonts/Lato-Bold.ttf
+          weight: 700
 
   uses-material-design: true
 

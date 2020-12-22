@@ -27,10 +27,10 @@ class EntryPoint extends StatelessWidget {
           displayColor: kBaseTextColor,
           fontFamily: 'Lato',
         ),
-        // fontFamily: 'Lato',
+        fontFamily: 'Lato',
       ),
       home: PageView(
-        children: const [ShowCase()],
+        children: const [ShowCase(), ShowCase()],
       ),
     );
   }

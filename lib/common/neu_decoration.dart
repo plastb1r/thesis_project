@@ -34,7 +34,7 @@ class NeuDecoration extends Decoration {
   @override
   EdgeInsetsGeometry get padding => shapeBorder.dimensions;
 
-  // TODO: implement isComplex
+  // TODO: implement and test isComplex
   // @override
   // bool get isComplex => true;
 

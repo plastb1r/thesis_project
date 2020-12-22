@@ -13,6 +13,7 @@ const Color kBackgroundColor = Color(0xFFE9EDF0);
 const Color kBaseTextColor = Color(0xFF595959);
 const Color kChipsTextColor = Color(0xFF515151);
 const Color kHeadlineTextColor = Color(0xFF515151);
+const Color kDescriptionTextColor = Color(0xFF787878);
 
 const List<Color> kBorderGradientColors = [
   Color(0xFFFFFFFF),
@@ -153,10 +154,14 @@ const kCardShadowBoxes = [
 const ShapeBorder kCardBorder =
     RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(13)));
 
+const double kTagRowRunSpace = 4;
+
+const double kTagOnCardLimit = 9;
+
 // INACTIVE TAG
 
-const kInactiveTagBetweenPadding = EdgeInsets.only(right: 8);
-const kInactiveTagPadding = EdgeInsets.all(4);
+const EdgeInsets kInactiveTagBetweenPadding = EdgeInsets.only(right: 8);
+const EdgeInsets kInactiveTagPadding = EdgeInsets.all(4);
 
-const kInactiveTagColorAreaPadding =
+const EdgeInsets kInactiveTagColorAreaPadding =
     EdgeInsets.symmetric(horizontal: 4, vertical: 1);
