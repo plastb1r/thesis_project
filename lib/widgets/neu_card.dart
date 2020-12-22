@@ -25,7 +25,7 @@ class NeuCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return NeuShape.card(
       child: Padding(
-        padding: const EdgeInsets.only(left: 8, top: 8, right: 6, bottom: 8),
+        padding: kCardPadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
@@ -34,18 +34,22 @@ class NeuCard extends StatelessWidget {
               Text(
                 title,
                 maxLines: _numberOfLinesForTitle(),
-                style: const TextStyle(fontSize: 19),
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontSize: kCardTitleFontSize),
               ),
-              const SizedBox(height: 9),
+              const SizedBox(height: kCardSpaceBetweenText),
             ],
             if (withDescription) ...[
               Text(
                 description,
                 maxLines: _numberOfLinesForDescription(),
-                style:
-                    const TextStyle(fontSize: 15, color: kDescriptionTextColor),
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: kCardDescriptionFontSize,
+                  color: kDescriptionTextColor,
+                ),
               ),
-              const SizedBox(height: 9),
+              const SizedBox(height: kCardSpaceBetweenText),
             ],
             CountedTagRow(tags: _rawTagRow()),
           ],
@@ -54,9 +58,11 @@ class NeuCard extends StatelessWidget {
     );
   }
 
-  int _numberOfLinesForTitle() => withDescription ? 3 : 8;
+  int _numberOfLinesForTitle() =>
+      withDescription ? kCardTitleLowMaxLines : kCardTitleHighMaxLines;
 
-  int _numberOfLinesForDescription() => withTitle ? 6 : 10;
+  int _numberOfLinesForDescription() =>
+      withTitle ? kCardDescriptionLowMaxLines : kCardDescriptionHighMaxLines;
 
   List<Widget> _rawTagRow() {
     return List<Widget>.generate(

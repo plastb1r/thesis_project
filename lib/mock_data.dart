@@ -3,14 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'entities/note_entity.dart';
 import 'entities/tag_entity.dart';
 
-List<TagEntity> fakeTags2 = List.generate(
-    6,
-    (index) =>
-        TagEntity(name: 'Health', color: Color(0xFF6AE0B6 + 0xA0 * index)))
-  ..add(const TagEntity(name: 'Health'))
-  ..add(const TagEntity(name: 'Health'))
-  ..add(const TagEntity(name: 'Health'));
-
 const List<TagEntity> fakeTags = [
   TagEntity(id: '0', name: '', color: Color(0xFFa2a2d0)),
   TagEntity(id: '1', name: 's', color: Color(0xFFf0f8ff)),
@@ -29,14 +21,14 @@ const List<TagEntity> fakeTags = [
 ];
 
 const List<NoteEntity> fakeNotes = [
-  NoteEntity(id: '-1', title: 'Only tittle', description: '', tags: []),
+  NoteEntity(id: '-1', title: 'Only title', description: '', tags: []),
   NoteEntity(id: '0', title: '', description: 'Only description', tags: []),
   NoteEntity(
     id: '1',
-    title: 'Tittle and tags',
+    title: 'Title and tags',
     description: '',
     tags: [
-      TagEntity(name: 'tittle', color: Color(0xFF5cffad)),
+      TagEntity(name: 'title', color: Color(0xFF5cffad)),
       TagEntity(name: 'and', color: Color(0xFF33ff33)),
       TagEntity(name: 'tags', color: Color(0xFF84e084)),
     ],
@@ -54,18 +46,22 @@ const List<NoteEntity> fakeNotes = [
   NoteEntity(
     id: '3',
     title: 'This card tests what happens if there is '
+        'only a large heading with no body text. '
+        'This card tests what happens if there is '
         'only a large heading with no body text.',
     description: '',
     tags: [
       TagEntity(name: 'check', color: Color(0xFFcca817)),
       TagEntity(name: 'for', color: Color(0xFFfae7b5)),
-      TagEntity(name: 'long tittle', color: Color(0xFFe7c697)),
+      TagEntity(name: 'long title', color: Color(0xFFe7c697)),
     ],
   ),
   NoteEntity(
     id: '4',
     title: '',
     description: 'this card checks the situation '
+        'when the user wrote all the content in the description block, '
+        'but left the title block empty this card checks the situation '
         'when the user wrote all the content in the description block, '
         'but left the title block empty',
     tags: [

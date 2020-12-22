@@ -154,8 +154,19 @@ const kCardShadowBoxes = [
 const ShapeBorder kCardBorder =
     RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(13)));
 
-const double kTagRowRunSpace = 4;
+const EdgeInsets kCardPadding =
+    EdgeInsets.only(left: 8, top: 8, right: 6, bottom: 8);
 
+const double kCardTitleFontSize = 19;
+const double kCardDescriptionFontSize = 15;
+const double kCardSpaceBetweenText = 4;
+
+const int kCardTitleLowMaxLines = 3;
+const int kCardTitleHighMaxLines = 8;
+const int kCardDescriptionLowMaxLines = 6;
+const int kCardDescriptionHighMaxLines = 10;
+
+const double kTagRowRunSpace = 4;
 const double kTagOnCardLimit = 9;
 
 // INACTIVE TAG
