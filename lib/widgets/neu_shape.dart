@@ -43,6 +43,20 @@ class NeuShape extends StatelessWidget {
           child: child,
         );
 
+  const NeuShape.inputField({
+    Key key,
+    Widget child,
+  }) : this._(
+          key: key,
+          shapeBorder: kButtonStadiumBorder,
+          elevation: -6,
+          boxShadows: null,
+          borderColors: kBorderGradientColors,
+          innerShadowColors: kInnerShadowColors,
+          innerColor: kInnerColor,
+          child: child,
+        );
+
   final ShapeBorder shapeBorder;
   final double elevation;
 

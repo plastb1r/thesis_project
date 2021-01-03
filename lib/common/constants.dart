@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'neu_decoration.dart';
 
+// ASSETS
+
+const String kAssetIconTag = 'assets/icons/tags.svg';
+const String kAssetIconSearch = 'assets/icons/search.svg';
+const String kAssetIconAdd = 'assets/icons/add.svg';
 // COMMON
 
 const double kFullCurvatureBorderRadius = 1000;
@@ -53,6 +58,8 @@ const List<BoxShadow> kTransparentShadowBoxes = [
 const double kButtonElevationUp = 8;
 const double kButtonElevationDown = -8;
 const double kButtonElevationHold = -12;
+
+const double kCircleButtonSize = 38;
 
 const EdgeInsets kButtonPadding =
     EdgeInsets.symmetric(horizontal: 12, vertical: 8);
@@ -159,7 +166,7 @@ const EdgeInsets kCardPadding =
 
 const double kCardTitleFontSize = 19;
 const double kCardDescriptionFontSize = 15;
-const double kCardSpaceBetweenText = 4;
+const double kCardSpaceBetweenText = 9;
 
 const int kCardTitleLowMaxLines = 3;
 const int kCardTitleHighMaxLines = 8;
@@ -176,3 +183,22 @@ const EdgeInsets kInactiveTagPadding = EdgeInsets.all(4);
 
 const EdgeInsets kInactiveTagColorAreaPadding =
     EdgeInsets.symmetric(horizontal: 4, vertical: 1);
+
+// NOTE SCREEN
+
+const EdgeInsets kListPadding =
+    EdgeInsets.symmetric(horizontal: 16, vertical: 10);
+
+const int kColumnCount = 2;
+
+const double kListMainAxisSpacing = 12;
+const double kListCrossAxisSpacing = 15;
+
+const EdgeInsets kListAppBarPadding = EdgeInsets.all(23);
+
+// APP BAR
+
+const SizedBox kAppBarSectionsSpacing = SizedBox(width: 20);
+const EdgeInsets kAppBarActionsSpasing = EdgeInsets.only(right: 8);
+
+const String kAppBarSearchHintText = 'Search for ...';
